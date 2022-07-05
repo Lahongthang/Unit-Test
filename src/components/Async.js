@@ -4,7 +4,7 @@ const Async = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://localhost:8000/api/todos')
       .then((response) => response.json())
       .then((data) => {
         setPosts(data.data);
@@ -15,7 +15,7 @@ const Async = () => {
     <div>
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
+          <li key={post.id}>{post.text}</li>
         ))}
       </ul>
     </div>

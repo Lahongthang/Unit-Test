@@ -5,7 +5,7 @@ describe('Async component', () => {
     test('renders text if request succeeds', async () => {
         window.fetch = jest.fn()
         window.fetch.mockResolvedValueOnce({
-            json: async () => [{id: 'p1', title: 'First post'}]
+            json: async () => ({data: [{id: 263, text: 'Learn Redux'}]})
         })
         render(<Async/>)
 
