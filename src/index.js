@@ -4,6 +4,28 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const headers = {
+  'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+  'Accept': 'application/json'
+}
+
+const fetchTodos = () => {
+  fetch('http://localhost:8000/api/todos', {headers: headers})
+    .then(response => response.json())
+    .then(data => console.log('data: ', data))
+    .catch(error => console.log('error: ', error))
+}
+
+const fetchTodos2 = async () => {
+  const response = await fetch('http://localhost:8000/api/todos?colors=black', {headers: headers})
+  const data = await response.json()
+  console.log('data2: ', data)
+}
+
+fetchTodos()
+fetchTodos2()
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
